@@ -34,15 +34,17 @@ main {
 }
 
 .left {
-  width: 52rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* outline: 1px solid red; */
 }
 
 .right {
-  width: 52rem;
+  width: 100%;
   font-size: 2rem;
+  /* outline: 1px solid red; */
 }
 
 /* ELEMENTS STYLE */
@@ -89,7 +91,7 @@ h1 {
   color: inherit;
   font-size: 5rem;
   padding: 2.5rem;
-  width: 25rem;
+  max-width: 25rem;
   text-align: center;
   display: block;
   margin-bottom: 3rem;
@@ -116,4 +118,69 @@ h1 {
 
 .label-score {
   margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .between {
+    font-size: 1rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+
+  main {
+    flex-direction: column;
+    margin-top: 10rem;
+    justify-content: flex-start;
+  }
+
+  .left {
+    margin-bottom: 4rem;
+  }
+
+  .again,
+  .check {
+    font-size: 1.4rem;
+  }
+
+  .guess {
+    font-size: 2rem;
+    width: 15rem;
+  }
+
+  .right {
+    font-size: 1rem;
+  }
+
+  .right > * {
+    text-align: center;
+  }
+
+  .message {
+    margin-bottom: 2rem;
+  }
+
+  .between {
+    top: 10rem;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    /* white-space: nowrap; */
+  }
+
+  .again {
+    left: 50%;
+    transform: translateX(-50%);
+    /* white-space: nowrap; */
+  }
+
+  .number {
+    width: 10rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .between {
+    font-size: 0.8rem;
+  }
 }

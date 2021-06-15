@@ -24,7 +24,7 @@ const showCorrectNumber = () => {
     number.textContent = randomNumber;
 
     //set width to 30rem
-    number.style.width = '30rem';
+    number.style.width = '20rem';
 
 }
 
