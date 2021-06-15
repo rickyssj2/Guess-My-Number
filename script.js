@@ -41,8 +41,15 @@ const setHighscore = () => {
     document.querySelector('.highscore').textContent = highscore;
 }
 
+//fuction to make 'check' button to 'again' button
+const againButton = () => {
+    document.querySelector('.check').textContent = 'Again!';
+}
+
 //fucntion to reset everthing
 const reset = () => {
+    //make 'again' button to 'check'
+    document.querySelector('.check').textContent = 'Check!';
     //generate new random number
     randomNumber = Math.trunc(Math.random() * 20 + 1);
     //set inputvalue = ''
@@ -82,6 +89,7 @@ document.querySelector('.check').addEventListener('click', () => {
         displayScore(--score);
         displayMessage('You lost the game :(');
         setBackground('#cb2d3e', '#ef473a');
+        againButton();
 
     } else {
         reset();
