@@ -52,6 +52,7 @@ const reset = () => {
     //reset hidden number to '?'
     document.querySelector('.number').textContent = '?';
     document.querySelector('.number').style.width = '15rem';
+    displayMessage('Start guessing...')
 }
 
 // Generate a random number
