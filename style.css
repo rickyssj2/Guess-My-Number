@@ -161,7 +161,7 @@ h1 {
   }
 
   .between {
-    top: 10rem;
+    top: 20vh;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
