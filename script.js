@@ -1,0 +1,93 @@
+'use strict';
+
+//////////Functions///////////
+//function to return input value 
+const inputValue = () => {
+    return Number(document.querySelector('.guess').value);
+}
+
+// function to display message
+const displayMessage = message => {
+    document.querySelector('.message').textContent = message;
+}
+
+// function to display score
+const displayScore = score => {
+    document.querySelector('.score').textContent = score;
+}
+
+// function to show correct number on winning
+const showCorrectNumber = () => {
+    const number = document.querySelector('.number');
+
+    //show correct number
+    number.textContent = randomNumber;
+
+    //set width to 30rem
+    number.style.width = '30rem';
+
+}
+
+//fucntion to set background gradient of body
+const setBackground = (color1, color2) => {
+    document.querySelector('body').style.backgroundImage = `linear-gradient(to right bottom, ${color1} , ${color2})`;
+}
+
+//fucntion to set and display highscore
+const setHighscore = () => {
+    if (score > highscore) {
+        highscore = score;
+    }
+    document.querySelector('.highscore').textContent = highscore;
+}
+
+//fucntion to reset everthing
+const reset = () => {
+    //generate new random number
+    randomNumber = Math.trunc(Math.random() * 20 + 1);
+    //set inputvalue = ''
+    document.querySelector('.guess').value = '';
+    displayScore(score = 20);
+    setBackground('#232526', '#414345');
+    //reset hidden number to '?'
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.number').style.width = '15rem';
+}
+
+// Generate a random number
+let randomNumber = Math.trunc(Math.random() * 20 + 1);
+
+// Create global score and highscore variables
+let score = 20;
+let highscore = 0;
+
+//add click event listener to 'Check' button
+document.querySelector('.check').addEventListener('click', () => {
+    if (score > 1) {
+        if (!inputValue()) {
+            displayMessage('Please enter a number between 1 and 20!');
+        } else {
+            if (inputValue() !== randomNumber) {
+                displayMessage(inputValue() > randomNumber ? 'Too High!!' : 'Too Low!!');
+                displayScore(--score);
+            } else {
+                displayMessage('Correct!!');
+                setBackground('#11998e', '#38ef7d');
+                setHighscore();
+                showCorrectNumber();
+            }
+        }
+    } else if (score === 1) {
+        displayScore(--score);
+        displayMessage('You lost the game :(');
+        setBackground('#cb2d3e', '#ef473a');
+
+    } else {
+        reset();
+    }
+});
+
+//reset everything except highscore on 'Again' click event
+document.querySelector('.again').addEventListener('click', () => {
+    reset();
+})
