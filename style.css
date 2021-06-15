@@ -16,6 +16,8 @@ body {
   color: #eee;
   background-image: linear-gradient(to right bottom, #232526, #414345);
   /* background-color: #60b347; */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 /* LAYOUT */
@@ -161,7 +163,7 @@ h1 {
   }
 
   .between {
-    top: 20vh;
+    top: 13.5rem;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
@@ -176,6 +178,14 @@ h1 {
 
   .number {
     width: 10rem;
+  }
+
+  h1 {
+    top: 11.5rem;
+  }
+
+  header {
+    height: 25rem;
   }
 }
 
