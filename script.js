@@ -88,6 +88,14 @@ document.querySelector('.check').addEventListener('click', () => {
     }
 });
 
+//enter key to take input
+document.querySelector('.guess').addEventListener('keyup', (event) => {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.querySelector('.check').click();
+    }
+})
+
 //reset everything except highscore on 'Again' click event
 document.querySelector('.again').addEventListener('click', () => {
     reset();
